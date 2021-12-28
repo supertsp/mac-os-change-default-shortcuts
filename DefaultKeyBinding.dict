@@ -1,12 +1,3 @@
-# mac-os-change-default-shortcuts
-How to change Mac OS X's default shortcut keys using file DefaultKeyBinding.dict
-
-
-## Steps
-
-1. Create the file `"DefaultKeyBinding.dict"` into: `~/Library/KeyBindings/DefaultKeyBinding.dict`
-2. Copy & Paste the code bellow:
-```
 /*
 Key Modifiers
 ^ : Ctrl
@@ -75,10 +66,3 @@ delete:       \U007F
   // Move line down
   "~\UF701" = (selectParagraph:, setMark:, deleteToMark:, moveToEndOfParagraph:, moveRight:, setMark:, yank:, moveLeft:, selectToMark:);
 }
-```
-
-## References
-
-1. https://github.com/microsoft/vscode/issues/111950
-2. https://gist.github.com/trusktr/1e5e516df4e8032cbc3d
-3. https://github.com/ttscoff/KeyBindings
