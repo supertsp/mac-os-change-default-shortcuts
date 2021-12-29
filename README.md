@@ -41,11 +41,6 @@ delete:       \U007F
   "^z" = (undo:);
   "^y" = (redo:);
 
-  //Jumping by words - to left
-  "$\UF702" = (moveWordLeft:);
-  //Jumping by words - to right
-  "$\UF703" = (moveWordRight:);
-
   //Move to Beginning
   "\UF729" = (moveToBeginningOfLine:);
   //Move to End
@@ -90,8 +85,6 @@ delete:       \U007F
 | **Select All**                            | Ctrl + A           | ^ + A                          |
 | **Undo**                                  | Ctrl + Z           | ^ + Z                          |
 | **Redo**                                  | Ctrl + Y           | ^ + Y                          |
-| **Jumping by Words - To Left**            | Ctrl + &xrarr;     | ^ + &xrarr;                    |
-| **Jumping by Words - To Right**           | Ctrl + &xlarr;     | ^ + &xlarr;                    |
 | **Move to Beginning of Line**             | Home               | none                           |
 | **Move to End of Line**                   | End                | none                           |
 | **Move to Beginning of Line and Select**  | Shift + Home       | none                           |
@@ -113,6 +106,8 @@ delete:       \U007F
 | **Select All**                            | Win + A            | ⌘ + A                         |
 | **Undo**                                  | Win + Z            | ⌘ + Z                         |
 | **Redo**                                  | Win + Y            | ⌘ + ⇧ + Z                     |
+| **Jumping by Words - To Left**            | Alt + &xrarr;      | ⌥ + &xrarr;                   |
+| **Jumping by Words - To Right**           | Alt + &xlarr;      | ⌥ + &xlarr;                   |
 | **Move to Left Desktop**                  | Ctrl + &xrarr;     | ^ + &xrarr;                    |
 | **Move to Right Desktop**                 | Ctrl + &xlarr;     | ^ + &xlarr;                    |
 | **Show All Desktops (Mission Control)**   | Ctrl + &uarr;      | ^ + &uarr;                     |

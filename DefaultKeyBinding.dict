@@ -32,11 +32,6 @@ delete:       \U007F
   "^z" = (undo:);
   "^y" = (redo:);
 
-  //Jumping by words - to left
-  "$\UF702" = (moveWordLeft:);
-  //Jumping by words - to right
-  "$\UF703" = (moveWordRight:);
-
   //Move to Beginning
   "\UF729" = (moveToBeginningOfLine:);
   //Move to End
