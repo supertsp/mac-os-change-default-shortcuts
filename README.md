@@ -115,6 +115,7 @@ delete:       \U007F
 | **Spy Desktop**                           | F11                | F11                            |
 | **Close App**                             | Win + Q            | ⌘ + Q                         |
 | **Block/Lock Screen**                     | Ctrl + Win + Q     | ^ + ⌘ + Q                     |
+| **Search Apps and Files (Spotlight)**     | Win + Space        | ⌘ + Space                     |
 
 
 
