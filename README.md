@@ -4,7 +4,7 @@ How to change Mac OS X's default shortcut keys using file DefaultKeyBinding.dict
 
 ## Steps
 
-1. Create the file `"DefaultKeyBinding.dict"` into: `~/Library/KeyBindings/DefaultKeyBinding.dict`
+1. Create the file `"DefaultKeyBinding.dict"` into: `~/Library/KeyBindings/`
 2. Copy & Paste the code bellow:
 ```
 /*
@@ -33,9 +33,10 @@ OS X
 delete:       \U007F
 */
 {
+
   "^c" = (copy:);
-  "^v" = (paste:);
   "^x" = (cut:);
+  "^v" = (paste:);
   "^a" = (moveToBeginningOfDocument:, moveToEndOfDocumentAndModifySelection:);
   "^z" = (undo:);
   "^y" = (redo:);
@@ -55,27 +56,72 @@ delete:       \U007F
   //Move to End and Select
   "$\UF72B" = (moveToEndOfLineAndModifySelection:);
 
-  // Commenting commands
-  "^@c" = {
-    // comment with "//"
-    "/" = (moveToBeginningOfParagraph:, insertText:, "// ", moveToEndOfParagraph:, moveForward:);
-    // comment with "#"
-    "3" = (moveToBeginningOfParagraph:, insertText:, "# ", moveToEndOfParagraph:, moveForward:);
-    // HTML commenting
-    "!" = (setMark:, swapWithMark:, delete:, insertText:, "<!-- ", yank:, insertText:, " -->", swapWithMark:, moveRight:, moveRight:, moveRight:, moveRight:, moveRight:);
-    // Css Commenting
-    "*" = (setMark:, swapWithMark:, delete:, insertText:, "/* ", yank:, insertText:, " */", swapWithMark:, moveRight:, moveRight:, moveRight:);
-  };
+  // Duplicate Line
+  "^d" = (setMark:, moveToBeginningOfParagraph:, moveToEndOfParagraphAndModifySelection:, copy:, swapWithMark:, moveToEndOfParagraph:, moveRight:, insertNewline:, moveLeft:, paste:);
 
-  // Duplicate line down
-  "^d" = (setMark:, moveToBeginningOfParagraph:, moveToEndOfParagraphAndModifySelection:, copy:, swapWithMark:, moveToEndOfParagraph:,moveRight:,insertNewline:,moveLeft:, paste:);
-
-  // Move line up
+  // Move Line up
   "~\UF700" = (selectParagraph:, setMark:, deleteToMark:, moveLeft:, moveToBeginningOfParagraph:, yank:, moveLeft:, selectToMark:, moveLeft:);
-  // Move line down
+  // Move Line down
   "~\UF701" = (selectParagraph:, setMark:, deleteToMark:, moveToEndOfParagraph:, moveRight:, setMark:, yank:, moveLeft:, selectToMark:);
+
+  // Comment Line with //
+  "^$>" = (moveToBeginningOfParagraph:, insertText:, "// ", moveToEndOfParagraph:);
+  // Uncomment Line with //
+  "^$<" = (moveToBeginningOfParagraph:, moveRight:, moveRight:, moveRight:, deleteBackward:, deleteBackward:, deleteBackward:, moveToEndOfParagraph:);
+
+  // Uppercase current paragraph
+  "^u" = (setMark:, selectParagraph:, uppercaseWord:, swapWithMark:);
+  // Lowercase current paragraph
+  "^$U" = (setMark:, selectParagraph:, lowercaseWord:, swapWithMark:);
+
 }
 ```
+
+3. Restart your Mac
+
+## Shortcuts
+
+### New
+| ***ACTION***                  | ***SHORTCUT ON WIN KEYBOARD*** | ***SHORTCUT ON MAC KEYBOARD*** | 
+|:-----------------------------------------:|:------------------:|:------------------------------:|
+| **Copy**                                  | Ctrl + C           | ^ + C                          |
+| **Cut**                                   | Ctrl + X           | ^ + X                          |
+| **Paste**                                 | Ctrl + V           | ^ + V                          |
+| **Select All**                            | Ctrl + A           | ^ + A                          |
+| **Undo**                                  | Ctrl + Z           | ^ + Z                          |
+| **Redo**                                  | Ctrl + Y           | ^ + Y                          |
+| **Jumping by Words - To Left**            | Ctrl + &xrarr;     | ^ + &xrarr;                    |
+| **Jumping by Words - To Right**           | Ctrl + &xlarr;     | ^ + &xlarr;                    |
+| **Move to Beginning of Line**             | Home               | none                           |
+| **Move to End of Line**                   | End                | none                           |
+| **Move to Beginning of Line and Select**  | Shift + Home       | none                           |
+| **Move to End of Line and Select**        | Shift + End        | none                           |
+| **Duplicate Line**                        | Ctrl + D           | ^ + D                          |
+| **Move Line Up**                          | Alt + &uarr;       | ⌥ + &uarr;                    |
+| **Move Line Down**                        | Alt + &darr;       | ⌥ + &darr;                    |
+| **Comment Line with //**                  | Ctrl + Shift + >   | ^ + ⇧ + >                      |
+| **Uncomment Line with //**                | Ctrl + Shift + <   | ^ + ⇧ + <                      |
+| **Uppercase current Paragraph**           | Ctrl + U           | ^ + U                          |
+| **Lowercase current Paragraph**           | Ctrl + Shift + U   | ^ + ⇧ + U                      |
+
+### Current
+| ***ACTION***                  | ***SHORTCUT ON WIN KEYBOARD*** | ***SHORTCUT ON MAC KEYBOARD*** | 
+|:-----------------------------------------:|:------------------:|:------------------------------:|
+| **Copy**                                  | Win + C            | ⌘ + C                         |
+| **Cut**                                   | Win + X            | ⌘ + X                         |
+| **Paste**                                 | Win + V            | ⌘ + V                         |
+| **Select All**                            | Win + A            | ⌘ + A                         |
+| **Undo**                                  | Win + Z            | ⌘ + Z                         |
+| **Redo**                                  | Win + Y            | ⌘ + ⇧ + Z                     |
+| **Move to Left Desktop**                  | Ctrl + &xrarr;     | ^ + &xrarr;                    |
+| **Move to Right Desktop**                 | Ctrl + &xlarr;     | ^ + &xlarr;                    |
+| **Show All Desktops (Mission Control)**   | Ctrl + &uarr;      | ^ + &uarr;                     |
+| **Show Only Current Window**              | Ctrl + &darr;      | ^ + &darr;                     |
+| **Spy Desktop**                           | F11                | F11                            |
+| **Close App**                             | Win + Q            | ⌘ + Q                         |
+| **Block/Lock Screen**                     | Ctrl + Win + Q     | ^ + ⌘ + Q                     |
+
+
 
 ## References
 

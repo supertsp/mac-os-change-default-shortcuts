@@ -24,9 +24,10 @@ OS X
 delete:       \U007F
 */
 {
+
   "^c" = (copy:);
-  "^v" = (paste:);
   "^x" = (cut:);
+  "^v" = (paste:);
   "^a" = (moveToBeginningOfDocument:, moveToEndOfDocumentAndModifySelection:);
   "^z" = (undo:);
   "^y" = (redo:);
@@ -46,23 +47,22 @@ delete:       \U007F
   //Move to End and Select
   "$\UF72B" = (moveToEndOfLineAndModifySelection:);
 
-  // Commenting commands
-  "^@c" = {
-    // comment with "//"
-    "/" = (moveToBeginningOfParagraph:, insertText:, "// ", moveToEndOfParagraph:, moveForward:);
-    // comment with "#"
-    "3" = (moveToBeginningOfParagraph:, insertText:, "# ", moveToEndOfParagraph:, moveForward:);
-    // HTML commenting
-    "!" = (setMark:, swapWithMark:, delete:, insertText:, "<!-- ", yank:, insertText:, " -->", swapWithMark:, moveRight:, moveRight:, moveRight:, moveRight:, moveRight:);
-    // Css Commenting
-    "*" = (setMark:, swapWithMark:, delete:, insertText:, "/* ", yank:, insertText:, " */", swapWithMark:, moveRight:, moveRight:, moveRight:);
-  };
+  // Duplicate Line
+  "^d" = (setMark:, moveToBeginningOfParagraph:, moveToEndOfParagraphAndModifySelection:, copy:, swapWithMark:, moveToEndOfParagraph:, moveRight:, insertNewline:, moveLeft:, paste:);
 
-  // Duplicate line down
-  "^d" = (setMark:, moveToBeginningOfParagraph:, moveToEndOfParagraphAndModifySelection:, copy:, swapWithMark:, moveToEndOfParagraph:,moveRight:,insertNewline:,moveLeft:, paste:);
-
-  // Move line up
+  // Move Line up
   "~\UF700" = (selectParagraph:, setMark:, deleteToMark:, moveLeft:, moveToBeginningOfParagraph:, yank:, moveLeft:, selectToMark:, moveLeft:);
-  // Move line down
+  // Move Line down
   "~\UF701" = (selectParagraph:, setMark:, deleteToMark:, moveToEndOfParagraph:, moveRight:, setMark:, yank:, moveLeft:, selectToMark:);
+
+  // Comment Line with //
+  "^$>" = (moveToBeginningOfParagraph:, insertText:, "// ", moveToEndOfParagraph:);
+  // Uncomment Line with //
+  "^$<" = (moveToBeginningOfParagraph:, moveRight:, moveRight:, moveRight:, deleteBackward:, deleteBackward:, deleteBackward:, moveToEndOfParagraph:);
+
+  // Uppercase current paragraph
+  "^u" = (setMark:, selectParagraph:, uppercaseWord:, swapWithMark:);
+  // Lowercase current paragraph
+  "^$U" = (setMark:, selectParagraph:, lowercaseWord:, swapWithMark:);
+
 }
