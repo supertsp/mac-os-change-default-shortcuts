@@ -55,9 +55,9 @@ delete:       \U007F
   "^d" = (setMark:, moveToBeginningOfParagraph:, moveToEndOfParagraphAndModifySelection:, copy:, swapWithMark:, moveToEndOfParagraph:, moveRight:, insertNewline:, moveLeft:, paste:);
 
   // Move Line up
-  "~\UF700" = (selectParagraph:, setMark:, deleteToMark:, moveLeft:, moveToBeginningOfParagraph:, yank:, moveLeft:, selectToMark:, moveLeft:);
+  "~\UF700" = (selectParagraph:, setMark:, deleteToMark:, moveLeft:, moveToBeginningOfParagraph:, yank:, moveLeft:);
   // Move Line down
-  "~\UF701" = (selectParagraph:, setMark:, deleteToMark:, moveToEndOfParagraph:, moveRight:, setMark:, yank:, moveLeft:, selectToMark:);
+  "~\UF701" = (selectParagraph:, setMark:, deleteToMark:, moveToEndOfParagraph:, moveRight:, setMark:, yank:, moveLeft:);
 
   // Comment Line with //
   "^$>" = (moveToBeginningOfParagraph:, insertText:, "// ", moveToEndOfParagraph:);
