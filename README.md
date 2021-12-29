@@ -4,8 +4,15 @@ How to change Mac OS X's default shortcut keys using file DefaultKeyBinding.dict
 
 ## Steps
 
-1. Create the file `"DefaultKeyBinding.dict"` into: `~/Library/KeyBindings/`
-2. Copy & Paste the code bellow:
+1. First, make all hidden files visible by typing the following command in the terminal:
+```shell
+$ defaults write com.apple.Finder AppleShowAllFiles true
+$ killall Finder
+```
+
+2. Create the file `"DefaultKeyBinding.dict"` into: `~/Library/KeyBindings/`
+
+3. Copy & Paste the code bellow:
 ```
 /*
 Key Modifiers
@@ -72,7 +79,7 @@ delete:       \U007F
 }
 ```
 
-3. Restart your Mac
+4. Restart your Mac
 
 ## Shortcuts
 
